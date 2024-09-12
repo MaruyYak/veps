@@ -28,6 +28,10 @@ header {
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 768px) {
+      display: none;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -37,6 +41,11 @@ header {
       font-size: 1.2rem;
       gap: 10px;
 
+      @media (max-width: 560px) {
+        font-size: 0.8rem;
+        gap: 5px;
+      }
+
       .menu-item {
         position: relative;
 
@@ -45,6 +54,11 @@ header {
           color: $font-color;
           padding: 10px 15px;
           transition: background-color 0.3s ease;
+
+          @media (max-width: 560px) {
+            padding: 5px;
+          }
+    
 
           &:hover {
             background-color: $accent-color;

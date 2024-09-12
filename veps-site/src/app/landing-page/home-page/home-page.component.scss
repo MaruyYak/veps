@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .home-page {
   display: flex;
   align-items: center;
@@ -21,14 +23,32 @@
 
       .home-title:first-child {
         font-size: 2.3rem;
+        @media (max-width: 640px) {
+          font-size: 1.8rem;
+        }
+        @media (max-width: 520px) {
+          font-size: 1.3rem;
+        }
       }
+
       .home-title {
         font-size: 2.5rem;
+        @media (max-width: 640px) {
+          font-size: 2rem;
+        }
+        @media (max-width: 520px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width: 420px) {
+          font-size: 1.3rem;
+        }
       }
+      
+  
     }
 
     .p-button {
-      background: #277A9A;
+      background: $accent-color;
       border: none;
 
       &:not(:disabled):hover {
@@ -37,32 +57,37 @@
       }
     }
   }
-
+    
   .home-img {
     z-index: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    background-image: url('/assets/main-background.png');
-    background-size: 110%;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/main-background-orig.PNG');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-
+  
     .home-img-layer {
       z-index: 1;
       position: absolute;
-      background-image: url(/assets/back.png);
-      background-size: 67%;
+      background-image: url('/assets/back.png');
+      background-size: contain;
       background-position: left;
       width: 100%;
       height: 100%;
       background-repeat: no-repeat;
-      background-position-y: center;
       overflow: hidden;
+
+      @media (max-width: 1200px) {
+        background-position: bottom;
+        width: 100%;
+        background-size: cover;
+        background-position-x: 80%;
+      }
     }
-  }
-    
+  }  
 }

@@ -15,19 +15,27 @@
     align-items: center;
     max-width: 800px;
     gap: 10px;
-    margin: 0 10px;
 
+    @media (max-width: 880px) {
+      flex-direction: column;
+      max-width: 500px;
+    }
+    
     .stat-data {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      min-width: 350px;
+      max-width: 350px;
 
       .stat-number {
         font-size: 4rem;
         color: $accent-color;
         font-weight: bold;
+
+        @media (max-width: 500px) {
+          font-size: 3rem;
+        }
       }
   
       .stat-label {
@@ -43,6 +51,11 @@
       color: $font-color-dark;
       line-height: 1.5;
       min-width: 500px;
+
+      @media (max-width: 500px) {
+        min-width: 300px;
+        font-size: 1rem;
+      }
     }
   }
 
