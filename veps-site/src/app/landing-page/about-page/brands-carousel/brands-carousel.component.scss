@@ -1,0 +1,19 @@
+@import '../../../../styles.scss';
+
+p-carousel {
+  max-width: 1000px;
+  margin: 0 auto;
+  
+  img {
+    border-radius: 10px;
+  }
+}
+
+::ng-deep .p-carousel-items-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: $accent-color;
+}

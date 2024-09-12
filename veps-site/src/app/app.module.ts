@@ -10,6 +10,8 @@ import { landingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { AboutPageComponent } from './landing-page/about-page/about-page.component';
 import { HomePageComponent } from './landing-page/home-page/home-page.component';
+import { CarouselModule } from 'primeng/carousel';
+import { BrandsCarouselComponent } from './landing-page/about-page/brands-carousel/brands-carousel.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { HomePageComponent } from './landing-page/home-page/home-page.component'
     HeaderComponent,
     HomePageComponent,
     AboutPageComponent,
+    BrandsCarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { HomePageComponent } from './landing-page/home-page/home-page.component'
     RouterModule,
     ButtonModule,
     InputTextModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

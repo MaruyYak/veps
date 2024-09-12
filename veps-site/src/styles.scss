@@ -39,12 +39,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-
-button {
-  font-family: $font-family;
-  color: $font-color;
-}
-
 .p-datatable {
   font-family: $font-family;
 
@@ -72,6 +66,6 @@ button {
   text-decoration: none;
 
   &:focus {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #277A9A, 0 1px 2px 0 black;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $accent-color, 0 1px 2px 0 black;
   }
 }
