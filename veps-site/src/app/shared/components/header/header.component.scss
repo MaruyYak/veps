@@ -47,7 +47,7 @@ header {
           transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: $hover-color;
+            background-color: $accent-color;
             border-radius: 5px;
           }
         }
@@ -70,7 +70,7 @@ header {
               text-align: center;
 
               &:hover {
-                background-color: $hover-color;
+                background-color: $accent-color;
                 border-radius: 5px;
               }
             }

@@ -2,7 +2,13 @@ $primary-color: #007bff;
 $secondary-color: #6c757d;
 $font-family: 'Roboto', sans-serif;
 $font-color: #f2f2f2;
-$hover-color: #277A9A;
+$font-color-dark: #132C3F;
+$accent-color: #277A9A;
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   font-family: $font-family;
