@@ -37,6 +37,8 @@
   }
 
   &.active {
+    position: fixed;
+    
     &::before {
       transform: rotate(45deg);
       background-color: white;
@@ -62,7 +64,6 @@
   z-index: 15;
   top: 0;
   width: 100%;
-
 
   section {
     display: flex;

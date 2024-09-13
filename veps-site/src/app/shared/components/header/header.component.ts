@@ -9,7 +9,7 @@ export class HeaderComponent {
   isMobile: boolean = window.innerWidth <= 768;
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
+  onResize() {
     this.isMobile = window.innerWidth <= 768;
   }
 
