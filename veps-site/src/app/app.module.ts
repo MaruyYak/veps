@@ -13,6 +13,7 @@ import { HomePageComponent } from './landing-page/home-page/home-page.component'
 import { CarouselModule } from 'primeng/carousel';
 import { BrandsCarouselComponent } from './landing-page/about-page/brands-carousel/brands-carousel.component';
 import { BurgerMenuComponent } from './shared/components/header/burger-menu/burger-menu.component';
+import { ServicesPageComponent } from './landing-page/services-page/services-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BurgerMenuComponent } from './shared/components/header/burger-menu/burg
     AboutPageComponent,
     BrandsCarouselComponent,
     BurgerMenuComponent,
+    ServicesPageComponent,
   ],
   imports: [
     BrowserModule,

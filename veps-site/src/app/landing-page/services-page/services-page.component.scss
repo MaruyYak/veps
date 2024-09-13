@@ -1,0 +1,99 @@
+@import '../../../styles.scss';
+
+.services-section {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column; 
+  align-items: center;
+
+  .service-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .img-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 40%;
+      height: 100%;
+
+      .serv-img_1, .serv-img_2, .serv-img_3 {
+        width: 101%;
+        height: 101%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+
+        &:hover {
+          transform: scale(1.2);
+          transition: 0.7s linear;
+        }
+      }
+    }
+
+    .desc-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 60%;
+      height: 100%;
+      padding: 3% 9%;
+
+      .desc-title {
+        font-size: clamp(1.3rem, 2vw, 2.2rem);
+        font-weight: 600;
+        text-align: left;
+        color: $font-color;
+        padding: 10px 0;
+        margin: 0;
+      }
+
+      .line {
+        width: 10%;
+        height: 2px;
+        background-color: $font-color;
+      }
+
+      .desc {
+        font-size: clamp(0.8rem, 2vw, 1.5rem);
+        color: $font-color;
+        font-weight: 100;
+        text-align: left;
+      }
+    }
+
+  }
+}
+
+.service-wrapper:nth-child(odd) .desc-wrapper {
+  background-color: #132C3F;
+}
+
+.service-wrapper:nth-child(even) .desc-wrapper {
+  background-color: #256899;
+}
+
+.service-wrapper:nth-child(even) {
+ flex-direction: row-reverse;
+}
+
+.serv-img_1 {
+  background-position: center;
+  background-image: url('/assets/services/serv_1.png');
+}
+
+.serv-img_2 {
+  background-position: center;
+  background-image: url('/assets/services/serv_2.png');
+}
+
+.serv-img_3 {
+  background-position-x: 40%;
+  background-image: url('/assets/services/serv_3.png');
+}
