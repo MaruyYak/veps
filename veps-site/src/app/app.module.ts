@@ -32,6 +32,7 @@ import { BurgerMenuComponent } from './shared/components/header/burger-menu/burg
     InputTextModule,
     AppRoutingModule,
     CarouselModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

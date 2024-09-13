@@ -9,55 +9,71 @@
   align-items: center;
   gap: 40px;
 
-  .stat {
+  .stat-container {
     display: flex;
-    text-align: center;
+    flex-direction: column;
+    gap: 30px;
     align-items: center;
-    max-width: 800px;
-    gap: 10px;
+    justify-content: center;
 
-    @media (max-width: 880px) {
-      flex-direction: column;
-      max-width: 500px;
-    }
-    
-    .stat-data {
+    .stat {
       display: flex;
-      flex-direction: column;
+      text-align: center;
       align-items: center;
-      width: 100%;
-      max-width: 350px;
-
-      .stat-number {
-        font-size: 4rem;
-        color: $accent-color;
-        font-weight: bold;
-
-        @media (max-width: 500px) {
-          font-size: 3rem;
+      max-width: 800px;
+      gap: 12px;
+  
+      @media (max-width: 880px) {
+        flex-direction: column;
+        max-width: 500px;
+      }
+      
+      .stat-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 350px;
+  
+        .stat-number {
+          font-size: 4rem;
+          color: $accent-color;
+          font-weight: bold;
+  
+          @media (max-width: 500px) {
+            font-size: 4.5rem;
+          }
+        }
+    
+        .stat-label {
+          font-size: 1.2rem;
+          color: $accent-color;
+          margin: -10px;
+          font-weight: 500;
+          
+          @media (max-width: 500px) {
+            margin: -20px;
+            font-size: 1rem;
+            font-weight: 700;
+          }
         }
       }
   
-      .stat-label {
-        font-size: 1.4rem;
-        color: $font-color-dark;
-        margin: -10px;
-      }
-    }
-
-
-    .stat-description {
-      font-size: 1.3rem;
-      color: $font-color-dark;
-      line-height: 1.5;
-      min-width: 500px;
-
-      @media (max-width: 500px) {
-        min-width: 300px;
-        font-size: 1rem;
+  
+      .stat-description {
+        font-size: 1.3rem;
+        color: #6b7780;
+        line-height: 1.5;
+        min-width: 500px;
+  
+        @media (max-width: 500px) {
+          min-width: 300px;
+          font-size: 1rem;
+        }
       }
     }
   }
+
 
   .carousel-container {
     display: flex;

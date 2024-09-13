@@ -1,12 +1,12 @@
 <header>
   <app-burger-menu *ngIf="isMobile"></app-burger-menu>
-  <a class="logo" routerLink="/">
-    <img src="../../../../assets/LOGO.svg" alt="Logo">
+  <a class="logo" [routerLink]="['/']" fragment="home">
+    <img src="../../../../assets/LOGO.svg" alt="VEPS Logo">
   </a>
   <nav class="menu-options" *ngIf="!isMobile">
     <ul>
       <li class="menu-item">
-        <a routerLink="/">О КОМПАНИИ</a>
+        <a [routerLink]="['/']" fragment="about">О КОМПАНИИ</a>
         <ul class="submenu">
           <li><a routerLink="/vacancies">ВАКАНСИИ</a></li>
         </ul>

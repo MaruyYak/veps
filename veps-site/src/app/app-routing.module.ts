@@ -6,9 +6,10 @@ import { AboutPageComponent } from './landing-page/about-page/about-page.compone
 import { landingPageComponent } from './landing-page/landing-page.component';
 
 export const routes: Routes = [
- {path: paths.home, component: HomePageComponent},
- {path: paths.about, component: AboutPageComponent},
- { path: '', component: landingPageComponent } 
+//  {path: paths.home, component: HomePageComponent},
+//  {path: paths.about, component: AboutPageComponent},
+ { path: '', component: landingPageComponent },
+ { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
