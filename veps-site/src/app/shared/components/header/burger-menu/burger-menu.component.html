@@ -3,10 +3,10 @@
   </button>
   <nav [class]="isOpen ? 'burger-menu active' : 'burger-menu'">
     <section>
-      <a routerLink="/about" (click)="onClick()">О КОМПАНИИ</a>
-      <a routerLink="/services" (click)="onClick()">ВИДЫ РАБОТ</a>
-      <a routerLink="/production" (click)="onClick()">ПРОДУКЦИЯ</a>
-      <a routerLink="/contacts" (click)="onClick()">КОНТАКТЫ</a>
+      <a [routerLink]="[]" fragment="about" (click)="onClick()">О КОМПАНИИ</a>
+      <a [routerLink]="[]" fragment="services" (click)="onClick()">ВИДЫ РАБОТ</a>
+      <a [routerLink]="[]" fragment="production" (click)="onClick()">ПРОДУКЦИЯ</a>
+      <a [routerLink]="[]" fragment="contacts" (click)="onClick()">КОНТАКТЫ</a>
     </section>
   </nav>
 </div>
