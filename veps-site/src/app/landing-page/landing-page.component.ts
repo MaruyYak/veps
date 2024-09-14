@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,52 +8,68 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './landing-page.component.scss'
 })
 
-export class LandingPageComponent implements OnInit {
-  sections: HTMLElement[] = [];
-  lastKnownFragment: string = '';
-  disableScrollListener: boolean = false;
+export class LandingPageComponent {
+  sections: { id: string, element: HTMLElement }[] = [];
+  isAutoScrolling: boolean = false;
+  currentSection: string | null = null;
+  scrollDebounceTimeout: any = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.sections = Array.from(document.querySelectorAll('[id]')) as HTMLElement[];
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const fragment = this.router.parseUrl(this.router.url).fragment;
-        this.scrollToSection(fragment);
-      }
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.handleFragment();
     });
   }
 
-  scrollToSection(fragment: string | null) {
-    if (fragment) {
-      const element = document.getElementById(fragment);
-      if (element) {
-        this.disableScrollListener = true;
-        
-        element.scrollIntoView({ behavior: 'smooth' });
-
-        setTimeout(() => {
-          this.disableScrollListener = false;
-        }, 1000);
-      }
-    }
+  ngAfterViewInit(): void {
+    this.initializeSections();
   }
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (this.disableScrollListener) return;
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    for (let i = this.sections.length - 1; i >= 0; i--) {
-      const section = this.sections[i];
-      if (scrollPosition >= section.offsetTop - 50) {
-        const sectionId = section.id;
-        if (this.lastKnownFragment !== sectionId) {
-          this.lastKnownFragment = sectionId;
-          this.router.navigate([], { fragment: sectionId, replaceUrl: true });
+  onWindowScroll(): void {
+    if (!this.isAutoScrolling) {
+      if (this.scrollDebounceTimeout) {
+        clearTimeout(this.scrollDebounceTimeout);
+      }
+      this.scrollDebounceTimeout = setTimeout(() => {
+        this.handleScroll();
+      }, 100);
+    }
+  }
+
+  initializeSections(): void {
+    this.sections = Array.from(document.querySelectorAll('[id]'))
+      .map(element => ({
+        id: element.id,
+        element: element as HTMLElement
+      }));
+  }
+
+  handleScroll(): void {
+    const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+    for (const section of this.sections) {
+      const { offsetTop, offsetHeight } = section.element;
+      if (scrollPosition >= offsetTop && scrollPosition <= offsetTop + offsetHeight) {
+        if (section.id !== this.currentSection) {
+          this.currentSection = section.id;
+          this.router.navigate([], { fragment: section.id, replaceUrl: true });
         }
         break;
       }
     }
   }
-}
+
+  handleFragment(): void {
+    const fragment = this.route.snapshot.fragment;
+    if (fragment && fragment !== this.currentSection) {
+      const element = document.getElementById(fragment);
+      if (element) {
+        this.isAutoScrolling = true;
+        this.isAutoScrolling = false;
+        this.currentSection = fragment;
+      }
+    }
+  }}

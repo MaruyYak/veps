@@ -34,7 +34,6 @@ import { ServicesPageComponent } from './landing-page/services-page/services-pag
     InputTextModule,
     AppRoutingModule,
     CarouselModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
