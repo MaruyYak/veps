@@ -1,0 +1,33 @@
+<footer>
+  <div class="footer-content">
+    <div class="map-container" >
+      <div id="map"></div>
+    </div>
+    <div class="contacts-container">
+      <div class="info-container" id="contacts">
+        <h3>Контакты</h3>
+        <div class="info">
+          <i class="pi pi-map-marker"></i>
+          <p>246007, Беларусь, г.Гомель, ул. Шилова 15 к.7</p>
+        </div>
+        <div class="info">
+          <i class="pi pi-phone"></i>
+          <a href="tel:+375293207177">+375(29)320-71-&nbsp;77</a>
+        </div>
+        <div class="info">
+          <i class="pi pi-envelope"></i>
+          <a href="mailto:veps.2008@tut.by">veps.2008&#64;tut.by</a>
+        </div>
+      </div>
+      <div class="info-container" id="workhours">
+        <h3>График работы</h3>
+        <div *ngFor="let schedule of workSchedule" class="work-day">
+          <div id="day">{{ schedule.day }}:&nbsp;</div>
+          <div id="hours">{{ schedule.hours }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>©2024 УНП 490680361. Все права защищены.</p>
+  <p>Made by <a href="https://github.com/MaruyYak">MY</a></p>
+</footer>

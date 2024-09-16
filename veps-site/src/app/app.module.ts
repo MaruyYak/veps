@@ -15,6 +15,7 @@ import { BrandsCarouselComponent } from './landing-page/about-page/brands-carous
 import { BurgerMenuComponent } from './shared/components/header/burger-menu/burger-menu.component';
 import { ServicesPageComponent } from './landing-page/services-page/services-page.component';
 import { WorkflowPageComponent } from './landing-page/workflow-page/workflow-page.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { WorkflowPageComponent } from './landing-page/workflow-page/workflow-pag
     BurgerMenuComponent,
     ServicesPageComponent,
     WorkflowPageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
