@@ -1,0 +1,88 @@
+@import '../../../styles.scss';
+
+.workflow-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  .workflow-title {
+    font-size: clamp(1.6rem, 2vw, 2.5rem);
+    font-weight: 600;
+    color: $font-color-dark;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .workflow-container {
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .workflow-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+
+      .wf-number {
+        position: absolute;
+        font-size: clamp(11rem, 3vw, 26rem);
+        font-weight: bold;
+        z-index: 0;
+        color: #e0e0e07e;
+        padding: 0;
+        margin: 0;
+        bottom: 30%;
+        right: 60%;
+        z-index: 0;
+      }
+
+      .wf-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        max-width: 480px;
+        z-index: 1;
+
+        .wf-img {
+          width: 130px;
+          height: 130px;
+        }
+
+        .wf-title {
+          font-size: clamp(1.2rem, 2vw, 2rem);
+          font-weight: 600;
+          text-align: center;
+          color: $font-color-dark;
+          padding: 0;
+          margin: 0;
+        }
+
+        .wf-desc {
+          text-align: center;
+          font-size: clamp(1rem, 2vw, 1.3rem);
+          font-weight: 400;
+          color: $font-color-dark;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+}

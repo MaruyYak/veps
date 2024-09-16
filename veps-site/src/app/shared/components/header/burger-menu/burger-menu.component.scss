@@ -38,6 +38,7 @@
 
   &.active {
     position: fixed;
+    top: 20px;
     
     &::before {
       transform: rotate(45deg);

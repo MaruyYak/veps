@@ -1,0 +1,13 @@
+<section class="workflow-section">
+  <h1 class="workflow-title">КАК МЫ РАБОТАЕМ:</h1>
+  <div class="workflow-container">
+    <div class="workflow-wrapper"  *ngFor="let flow of workFlowInfo">
+      <span class="wf-number">{{flow.number}}</span>
+      <div class="wf-content">
+        <img class="wf-img" [src]="flow.img"/>
+        <h2 class="wf-title">{{flow.title}}</h2>
+        <p class="wf-desc">{{flow.desc}}</p>
+      </div>
+    </div>
+  </div>
+</section>
