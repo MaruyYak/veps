@@ -16,6 +16,8 @@ import { BurgerMenuComponent } from './shared/components/header/burger-menu/burg
 import { ServicesPageComponent } from './landing-page/services-page/services-page.component';
 import { WorkflowPageComponent } from './landing-page/workflow-page/workflow-page.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NoVacanciesPageComponent } from './landing-page/vacancies-page/no-vacancies-page/no-vacancies-page.component';
+import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ServicesPageComponent,
     WorkflowPageComponent,
     FooterComponent,
+    VacanciesPageComponent,
+    NoVacanciesPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -45,8 +45,8 @@
         color: #e0e0e07e;
         padding: 0;
         margin: 0;
-        bottom: 30%;
-        right: 60%;
+        top: -8%;
+        right: 65%;
         z-index: 0;
       }
 
@@ -56,17 +56,12 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        max-width: 480px;
+        max-width: 460px;
         z-index: 1;
 
         .wf-img {
           width: 130px;
           height: 130px;
-
-          // @media screen and (max-width: 450px) {
-          //   width: 110px;
-          //   height: 110px;
-          // }
         }
 
 

@@ -1,14 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HomePageComponent } from './landing-page/home-page/home-page.component';
-import { AboutPageComponent } from './landing-page/about-page/about-page.component';
-import { ServicesPageComponent } from './landing-page/services-page/services-page.component';
+import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-page.component';
 
-const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
-  { path: 'about', component: AboutPageComponent },
-  { path: 'services', component: ServicesPageComponent },
+export const routes: Routes = [
+  // { path: 'home', component: HomePageComponent },
+  // { path: 'about', component: AboutPageComponent },
+  // { path: 'services', component: ServicesPageComponent },
+  { path: 'vacancies', component: VacanciesPageComponent },
   { path: '', component: LandingPageComponent },
   { path: '**', redirectTo: '' }
 ];

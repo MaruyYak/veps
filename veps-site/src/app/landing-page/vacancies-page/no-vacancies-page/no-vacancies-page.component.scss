@@ -1,0 +1,18 @@
+@import '../../../../styles.scss';
+
+.no-vacancies {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-dark;
+  max-width: 650px;
+  max-height: 250px;
+
+  .no-vacancies-text {
+    font-size: 2rem;
+    font-weight: 300;
+    color: $font-color;
+    text-align: center;
+    padding: 20px 30px;
+  }
+}
