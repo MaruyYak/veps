@@ -1,7 +1,29 @@
+@import '../../../styles.scss';
+
+:host ::ng-deep .p-accordion-header-link {
+  background-color: $background-dark;
+}
+:host ::ng-deep .p-accordion .p-accordion-content {
+  border-color: $background-dark;
+}
+
 .vacancies-section {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  height: 100vh;
+
+  .vacancy-details {
+    padding: 10px;
+    line-height: 1.6;
+  }
+
+  p-accordion {
+    margin-top: 100px;
+    width: 100%;
+    padding: 20px;
+    max-height: 100%;
+    height: 100%;
+  }
 }
+

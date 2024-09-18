@@ -18,6 +18,7 @@ import { WorkflowPageComponent } from './landing-page/workflow-page/workflow-pag
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NoVacanciesPageComponent } from './landing-page/vacancies-page/no-vacancies-page/no-vacancies-page.component';
 import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-page.component';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-
     InputTextModule,
     AppRoutingModule,
     CarouselModule,
+    AccordionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
