@@ -1,24 +1,27 @@
-<header>
-  <app-burger-menu *ngIf="isMobile"></app-burger-menu>
+<header [ngClass]="headerColor">
+  <app-burger-menu
+  [isOpen]="isMenuOpen"
+  (closeMenu)="closeMenu()"
+  ></app-burger-menu>
   <a [routerLink]="['/']" fragment="home" class="logo">
     <img src="../../../../assets/LOGO.svg" alt="VEPS Logo">
   </a>
   <nav class="menu-options" *ngIf="!isMobile">
     <ul>
       <li class="menu-item">
-        <a [routerLink]="[]" fragment="about" >О КОМПАНИИ</a>
+        <a (click)="navigateToSection('about')">О КОМПАНИИ</a>
         <ul class="submenu">
-          <li><a [routerLink]="[]" fragment="vacancies">ВАКАНСИИ</a></li>
+          <li><a routerLink="/vacancies">ВАКАНСИИ</a></li>
         </ul>
       </li>
       <li class="menu-item">
-        <a [routerLink]="[]" fragment="services">ВИДЫ РАБОТ</a>
+        <a (click)="navigateToSection('services')">ВИДЫ РАБОТ</a>
       </li>
       <li class="menu-item">
-        <a [routerLink]="[]" fragment="production">ПРОДУКЦИЯ</a>
+        <a (click)="navigateToSection('production')">ПРОДУКЦИЯ</a>
       </li>
       <li class="menu-item">
-        <a [routerLink]="[]" fragment="contacts">КОНТАКТЫ</a>
+        <a (click)="navigateToSection('contacts')">КОНТАКТЫ</a>
       </li>
     </ul>
   </nav>

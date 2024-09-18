@@ -55,7 +55,6 @@ header {
 
         a {
           text-decoration: none;
-          color: $font-color;
           padding: 10px 15px;
           transition: background-color 0.3s ease;
 
@@ -100,5 +99,24 @@ header {
         }
       }
     }
+  }
+}
+
+
+.default-header a {
+  color: $font-color !important;
+}
+
+@media screen and (max-width: 768px) {
+  .special-header {
+    background-color: $background-dark;
+  }
+}
+
+.special-header a {
+  color: $font-color-dark !important;
+
+  &:hover {
+    color: $font-color !important;
   }
 }

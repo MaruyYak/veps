@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-burger-menu',
@@ -8,7 +9,22 @@ import { Component } from '@angular/core';
 export class BurgerMenuComponent {
   isOpen: boolean = false;
 
-  onClick() {
+  constructor(private router: Router) {}
+
+  toggleMenu(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  closeMenu(): void {
+    this.isOpen = false;
+  }
+
+  navigateToSection(fragment: string): void {
+    if (this.router.url === '/') {
+      this.router.navigate([], { fragment });
+    } else {
+      this.router.navigate(['/'], { fragment });
+    }
+    this.closeMenu();
   }
 }
