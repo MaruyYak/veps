@@ -1,6 +1,5 @@
 <header [ngClass]="headerColor">
   <app-burger-menu
-  [isOpen]="isMenuOpen"
   (closeMenu)="closeMenu()"
   ></app-burger-menu>
   <a [routerLink]="['/']" fragment="home" class="logo">
