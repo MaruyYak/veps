@@ -19,6 +19,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { NoVacanciesPageComponent } from './landing-page/vacancies-page/no-vacancies-page/no-vacancies-page.component';
 import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-page.component';
 import { AccordionModule } from 'primeng/accordion';
+import { ResumeFormComponent } from './landing-page/vacancies-page/resume-form/resume-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalService } from './shared/services/modal-service/modalService';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { AccordionModule } from 'primeng/accordion';
     FooterComponent,
     VacanciesPageComponent,
     NoVacanciesPageComponent,
+    ResumeFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +48,9 @@ import { AccordionModule } from 'primeng/accordion';
     AppRoutingModule,
     CarouselModule,
     AccordionModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
