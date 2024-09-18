@@ -1,7 +1,5 @@
 <header [ngClass]="headerColor">
-  <app-burger-menu
-  (closeMenu)="closeMenu()"
-  ></app-burger-menu>
+  <app-burger-menu *ngIf="isMobile"></app-burger-menu>
   <a [routerLink]="['/']" fragment="home" class="logo">
     <img src="../../../../assets/LOGO.svg" alt="VEPS Logo">
   </a>
@@ -20,7 +18,7 @@
         <a (click)="navigateToSection('production')">ПРОДУКЦИЯ</a>
       </li>
       <li class="menu-item">
-        <a (click)="navigateToSection('contacts')">КОНТАКТЫ</a>
+        <a (click)="navigateToSection('workflow')">СОТРУДНИЧЕСТВО</a>
       </li>
     </ul>
   </nav>

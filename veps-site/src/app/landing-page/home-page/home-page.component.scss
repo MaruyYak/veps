@@ -14,7 +14,7 @@
     align-items: flex-start;
     justify-content: center;
     height: 100%;
-    padding-bottom: 120px;
+    padding-bottom: 50px;
     gap: 20px;
 
     .home-titles-group {
@@ -27,10 +27,8 @@
       }
 
       .home-title {
-        font-size: clamp(1.2rem, 4vw, 3.1rem);
+        font-size: clamp(1.2rem, 4vw, 2.8rem);
       }
-      
-  
     }
 
     .p-button {
