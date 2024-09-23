@@ -14,8 +14,9 @@ export class ProductsPageComponent {
   currentImageIndexes: number[] = [];
 
   filteredProducts: Product[] = this.products; 
-
-  constructor() {
+  
+  ngOnInit() {
+    window.scrollTo(0, 0);
     this.currentImageIndexes = this.products.map(() => 0);
   }
 
