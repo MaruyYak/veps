@@ -1,0 +1,24 @@
+<section class="products-section">
+    <app-filter (searchTermChange)="updateSearchTerm($event)"></app-filter>
+
+    <div class="products-container">
+      <div class="product-wrapper" *ngFor="let product of filteredProducts; let i = index">
+        <div class="img-wrapper">
+          <button class="prev-btn" (click)="prevImage(i)">&#10094;</button>
+          
+          <img [src]="product.images[currentImageIndexes[i]]" alt="{{product.title}}" />
+
+          <button class="next-btn" (click)="nextImage(i)">&#10095;</button>
+        </div>
+        <div class="desc-wrapper">
+          <p class="desc-title">{{product.title}}</p>
+          <span class="line"></span>
+          <p class="desc">{{product.desc}}</p>
+        </div>
+      </div>
+      <div *ngIf="filteredProducts.length === 0" class="no-products-message">
+        Совпадений не найдено
+      </div>
+    </div>
+</section>
+

@@ -20,8 +20,11 @@ import { NoVacanciesPageComponent } from './landing-page/vacancies-page/no-vacan
 import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-page.component';
 import { AccordionModule } from 'primeng/accordion';
 import { ResumeFormComponent } from './landing-page/vacancies-page/resume-form/resume-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalService } from './shared/services/modal/modalService';
+import { ProductsPageComponent } from './landing-page/products-page/products-page.component';
+import { FilterComponent } from './landing-page/products-page/filter/filter.component';
+import { ProductFilterPipe } from './shared/pipes/product-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { ModalService } from './shared/services/modal/modalService';
     VacanciesPageComponent,
     NoVacanciesPageComponent,
     ResumeFormComponent,
+    ProductsPageComponent,
+    FilterComponent,
+    ProductFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,7 @@ import { ModalService } from './shared/services/modal/modalService';
     CarouselModule,
     AccordionModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ModalService],
   bootstrap: [AppComponent]
