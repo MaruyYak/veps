@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../../shared/services/modal-service/modalService';
+import { ModalService } from '../../shared/services/modal/modalService';
 
 @Component({
   selector: 'app-vacancies-page',

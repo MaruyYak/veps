@@ -21,7 +21,7 @@ import { VacanciesPageComponent } from './landing-page/vacancies-page/vacancies-
 import { AccordionModule } from 'primeng/accordion';
 import { ResumeFormComponent } from './landing-page/vacancies-page/resume-form/resume-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ModalService } from './shared/services/modal-service/modalService';
+import { ModalService } from './shared/services/modal/modalService';
 
 @NgModule({
   declarations: [

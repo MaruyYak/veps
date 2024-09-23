@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ModalService } from '../../../shared/services/modal-service/modalService';
+import { ModalService } from '../../../shared/services/modal/modalService';
 import { Subscription } from 'rxjs';
+import { ValidationService } from '../../../shared/services/validation/ValidationService';
 
 @Component({
   selector: 'app-resume-form',
@@ -12,17 +13,22 @@ export class ResumeFormComponent {
   resumeForm: FormGroup;
   isModalOpen: boolean = false;
   vacancyLink: string | null = null;
+  maxSizeInMB = 5;
+  fileError: string | null = null;
   private modalSubscription!: Subscription;
-  
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
   constructor( 
     private modalService: ModalService,
-    private fb: FormBuilder) {
-    this.resumeForm = this.fb.group({
-      name: ['', Validators.required, Validators.minLength(3)],
-      phone: ['', Validators.required, Validators.minLength(7)],
-      email: ['', [Validators.required, Validators.email]],
-      resume: [null, Validators.required, Validators.minLength(1)]
-    });
+    private fb: FormBuilder,
+    private validationService: ValidationService) {
+
+      this.resumeForm = this.fb.group({
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        phone: ['', [Validators.required, this.validationService.phoneValidator()]],
+        email: ['', [Validators.required, this.validationService.emailValidator()]],
+        resume: [null, Validators.required]
+      });
   }
 
 
@@ -31,7 +37,6 @@ export class ResumeFormComponent {
       this.isModalOpen = state;
     });
   }
-
   ngOnDestroy() {
     this.modalSubscription.unsubscribe();
   }
@@ -42,23 +47,41 @@ export class ResumeFormComponent {
 
   resetForm() {
     this.resumeForm.reset();
+    this.fileInput.nativeElement.value = '';
   }
 
   onSubmit() {
-    if (this.resumeForm.valid) {
+    if (!this.resumeForm.invalid) {
       console.log(this.resumeForm.value);
-      this.closeModal();
-      this.resetForm();
+      setTimeout(() => {
+        this.closeModal();
+        this.resetForm();
+      }, 2000);
     }
   }
 
+  onFileSelect(event: Event) {
+   const fileInput = event.target as HTMLInputElement;
+    const file = fileInput.files?.[0] as File;
+  
+    const validFileTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    
+    this.fileError = null; 
 
-  onFileSelect(event: any) {
-    const file = event.target.files[0];
     if (file) {
-      this.resumeForm.patchValue({
-        resume: file
-      });
+      if (!validFileTypes.includes(file.type)) {
+        this.fileError = 'Допускаются только файлы формата PDF, DOC или DOCX-';
+        this.fileInput.nativeElement.value = '';
+        return;
+      }
+    
+      if (file.size > this.maxSizeInMB * 1024 * 1024) {
+        this.fileError = 'Файл должно быть не более 5 МБ';
+        this.fileInput.nativeElement.value = '';
+        return;
+      }
+    
+      this.resumeForm.patchValue({ resume: file });
     }
   }
 }

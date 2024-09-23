@@ -4,26 +4,41 @@
     <h1>Отправить резюме</h1>
     <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
       <div>
-        <label for="name">Имя</label>
+        <label for="name">Ваше Имя</label>
         <input id="name" formControlName="name" type="text" placeholder="Ваше имя">
+        <div *ngIf="resumeForm.get('name')?.invalid && resumeForm.get('name')?.touched">
+          <small class="p-error" *ngIf="resumeForm.get('name')?.errors?.['required']">Обязательное поле</small>
+          <small class="p-error" *ngIf="resumeForm.get('name')?.errors?.['minlength']">Минимальная длина 2 символа</small>
+        </div>
       </div>
     
       <div>
-        <label for="phone">Телефон</label>
+        <label for="phone">Ваш телефон</label>
         <input id="phone" formControlName="phone" type="tel" placeholder="+375 (__) ___-__-__">
+        <div *ngIf="resumeForm.get('phone')?.invalid && resumeForm.get('phone')?.touched">
+          <small class="p-error" *ngIf="resumeForm.get('phone')?.errors?.['invalidPhone']">Некорректный номер телефона</small>
+        </div>
       </div>
     
       <div>
-        <label for="email">Email</label>
+        <label for="email">Ваш Email</label>
         <input id="email" formControlName="email" type="email" placeholder="example@example.com">
+        <div *ngIf="resumeForm.get('email')?.invalid && resumeForm.get('email')?.touched">
+          <small class="p-error" *ngIf="resumeForm.get('email')?.errors?.['invalidEmail']">Некорректный адрес электронной почты</small>
+        </div>
       </div>
     
       <div>
         <label for="resume">Загрузите ваше резюме</label>
-        <input id="resume" type="file" (change)="onFileSelect($event)">
+        <small>Загрузите файл в формате PDF, DOC или DOCX</small>
+        <input id="resume" #fileInput type="file" accept=".pdf,.doc,.docx" (change)="onFileSelect($event)">
+        <div *ngIf="fileError">
+          <small class="p-error">{{ fileError }}</small>
+        </div>
       </div>
     
       <button type="submit" [disabled]="resumeForm.invalid" class="p-button font-bold">Отправить</button>
     </form>
+    
   </div>
 </div>
