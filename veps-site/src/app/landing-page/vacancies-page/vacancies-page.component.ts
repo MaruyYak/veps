@@ -21,6 +21,7 @@ export class VacanciesPageComponent {
 
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.loadVacancies();
   }
 
