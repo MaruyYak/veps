@@ -25,6 +25,7 @@ import { ModalService } from './shared/services/modal/modalService';
 import { ProductsPageComponent } from './landing-page/products-page/products-page.component';
 import { FilterComponent } from './landing-page/products-page/filter/filter.component';
 import { ProductFilterPipe } from './shared/pipes/product-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ProductFilterPipe } from './shared/pipes/product-filter.pipe';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule,
     ButtonModule,

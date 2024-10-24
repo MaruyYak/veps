@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from '../../../shared/services/modal/modalService';
 import { Subscription } from 'rxjs';
 import { ValidationService } from '../../../shared/services/validation/ValidationService';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resume-form',
@@ -21,7 +22,8 @@ export class ResumeFormComponent {
   constructor( 
     private modalService: ModalService,
     private fb: FormBuilder,
-    private validationService: ValidationService) {
+    private validationService: ValidationService,
+    private http: HttpClient) {
 
       this.resumeForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
@@ -50,13 +52,29 @@ export class ResumeFormComponent {
     this.fileInput.nativeElement.value = '';
   }
 
+  // onSubmit() {
+  //   if (!this.resumeForm.invalid) {
+  //     console.log(this.resumeForm.value);
+  //     setTimeout(() => {
+  //       this.closeModal();
+  //       this.resetForm();
+  //     }, 2000);
+  //   }
+  // }
+
   onSubmit() {
     if (!this.resumeForm.invalid) {
-      console.log(this.resumeForm.value);
-      setTimeout(() => {
-        this.closeModal();
-        this.resetForm();
-      }, 2000);
+      this.http.post('https://veps.by/mail', this.resumeForm.value, {
+        headers: { 'Content-Type': 'application/json' }
+      }).subscribe(
+        (response) => {
+          console.log('Email sent successfully');
+        },
+        (error) => {
+          console.error('Error sending email', error);
+        }
+      );
+        
     }
   }
 

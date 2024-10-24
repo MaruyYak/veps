@@ -21,7 +21,7 @@
       width: 40%;
       height: 100%;
 
-      .serv-img_1, .serv-img_2, .serv-img_3 {
+      .serv-img_1, .serv-img_2, .serv-img_3, .serv-img_4 {
         width: 101%;
         height: 101%;
         background-size: cover;
@@ -99,4 +99,9 @@
 .serv-img_3 {
   background-position-x: 40%;
   background-image: url('/assets/services/serv_3.png');
+}
+
+.serv-img_4 {
+  background-position: center;
+  background-image: url('/assets/services/serv_4.png');
 }
