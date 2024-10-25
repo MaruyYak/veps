@@ -14,18 +14,19 @@
     align-items: center;
 
     @media screen and (max-width: 420px) {
-      gap: 5px;
+      gap: 20px;
     }
+
     .product-wrapper {
-      width: 280px;
+      width: 300px;
       position: relative;
       text-align: center;
       border: 1px solid #0000001f;
       border-radius: 5px;
-      padding: 10px;
+      padding: 5px;
   
       @media screen and (max-width: 420px) {
-        width: 170px;
+        width: 150px;
       }
       
       .img-wrapper {
@@ -33,6 +34,11 @@
         width: 100%;
         height: 280px;
         overflow: hidden;
+
+        @media screen and (max-width: 420px) {
+          height: 130px;
+        }
+
         img {
           width: 100%;
           height: auto;
@@ -64,7 +70,7 @@
         height: 140px;
         
         .desc-title {
-          font-size: 1rem;
+          font-size: clamp(0.7rem, 3vw, 1rem);
           font-weight: bold;
         }
   
@@ -76,7 +82,7 @@
         }
   
         .desc {
-          font-size: 0.8rem;
+          font-size: clamp(0.4rem, 3vw, 0.8rem);
           color: $secondary-color;
         }
       }
