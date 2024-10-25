@@ -19,7 +19,6 @@ export class VacanciesPageComponent {
 
   constructor(private modalService: ModalService) {}
 
-
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.loadVacancies();
