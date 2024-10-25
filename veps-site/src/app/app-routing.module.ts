@@ -6,7 +6,7 @@ import { ResumeFormComponent } from './landing-page/vacancies-page/resume-form/r
 import { ProductsPageComponent } from './landing-page/products-page/products-page.component';
 
 export const routes: Routes = [
-  { path: 'products', component: ProductsPageComponent },
+  { path: 'production', component: ProductsPageComponent },
   { path: 'vacancies', component: VacanciesPageComponent },
   { path: 'vacancies/:respond', component: ResumeFormComponent },
   { path: '', component: LandingPageComponent },

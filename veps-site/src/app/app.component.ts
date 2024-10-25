@@ -16,7 +16,7 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (this.router.url.includes('vacancies') || this.router.url.includes('products')) {
+        if (this.router.url.includes('vacancies') || this.router.url.includes('production')) {
           this.currentHeaderColor = 'special-header';
         } else {
           this.currentHeaderColor = 'default-header';
